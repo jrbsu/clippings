@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" id="vbulletin_html">
+    <head>
+    
+    </head>
+    <body>
+
+    <script type="text/javascript">
+    function replaceStuff(){
+		var inputBox = document.getElementById("stuffs");
+		var resultSpiel = document.getElementById("result");
+		var text = inputBox.value;
+		resultSpiel.innerHTML=""; //blank it!
+		
+		var x = "";
+		var clippings = "";
+		var urls = "";
+		var works = "";
+		workLength = 0;
+		
+		var findWholeClipping = /.*\s-\s.*\nhttp.*/g //Finds a whole clipping
+		var findClipping = /.*\s-\s.*/ //Finds the work-title thing
+		var findURL = /http.*/g //Finds the URL
+		var findWork = /(.*)\s-\s/ //Finds the hyphen separator
+		
+		var wholes = text.match(findWholeClipping); //put clippings in array
+		for (var i=0; i<wholes.length; i++) {
+			clippings = wholes[i].match(findClipping); //put clipping details in array
+			urls = wholes[i].match(findURL); //put url in array
+			works = wholes[i].match(findWork); //put work in array
+			clippingLength = clippings[0].length; // To catch the clipping length
+			workLength = works[0].length; // To catch the work length
+			x = "*" + works[0] + "[" + urls[0] + " " + clippings[0].substring(workLength,clippingLength) + "]\n";
+			resultSpiel.innerHTML+=(x);
+		}
+	}
+    </script>
+	<textarea id="stuffs" style="width: 100%; height: 150px">Paste your media report in here...</textarea><br/>
+	<textarea id="result" style="width: 100%; height: 150px">...and the WikiText will appear here!</textarea>
+	<button onclick="replaceStuff()">Go!</button>
+	</body>
