@@ -29,6 +29,6 @@ function replaceStuff(){
 			workLength = 0;
 			x = "\n;" + clippings[0] + "\n";
 		}
-		resultSpiel.innerHTML+=(x);
+		resultSpiel.innerHTML += x;
 	}
 }
