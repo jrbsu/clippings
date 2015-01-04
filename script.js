@@ -15,7 +15,7 @@ function replaceStuff(){
 	var findWholeClipping = /(.*\s-\s.*\nhttp.*|January.*|February.*|March.*|April.*|May.*|June.*|July.*|August.*|September.*|October.*|November.*|December.*)/g;
 	
 	// Finds the work-title thing (or the date)
-	var findClipping = /(.*\s-\s.*|January.*|February.*|March.*|April.*|May.*|June.*|July.*|August.*|September.*|October.*|November.*|December.*)/;
+	var findClipping = /(.*\s-\s.*|^January.*|^February.*|^March.*|^April.*|^May.*|^June.*|^July.*|^August.*|^September.*|^October.*|^November.*|^December.*)/m;
 	
 	// Finds the URL
 	var findURL = /http.*/g;
